@@ -14,14 +14,14 @@ body {
   margin: 0;
   background-color: $white;
   color:$BrainFlix-Black;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
   @include mobile-body;
   @include tablet {
       @include tablet-body;
   }
-}
-
-#root {
-  box-sizing: border-box;
 }
 
 h2,h3,p {
@@ -32,4 +32,7 @@ img {
   max-width: 100%;
 }
 
-
+button {
+  border: 1px solid transparent;
+  border-radius: 4px;
+}

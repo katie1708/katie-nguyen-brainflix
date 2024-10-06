@@ -3,7 +3,6 @@ import "./CommentSection.scss";
 
 function CommentList(props) {
     const comments = props.commentList;
-    // console.log(comments);
 
     return(
         <section className="comments__list">

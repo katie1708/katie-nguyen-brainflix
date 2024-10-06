@@ -13,7 +13,7 @@ function Header() {
                 <input className="header__search--input" type="text" placeholder="Search">
                 </input>
             </div>
-            <img className="header__avatar" src={avatar}/>
+            <p className="header__avatar" src={avatar}></p>
             <button className="header__upload" type="submit">
                 <img src={upload}/>
                 <p>UPLOAD</p>

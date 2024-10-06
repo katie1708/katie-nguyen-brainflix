@@ -12,6 +12,9 @@
 .videoplayer {
     margin: 0;
     width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
     @include tablet {
         width: 70%;
     }

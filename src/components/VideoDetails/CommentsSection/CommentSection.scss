@@ -6,47 +6,47 @@
     &__form {
         display: flex;
         flex-direction: row;
-        margin: 0 16px;
-        padding-bottom: 16px;
-        column-gap: 16px;
+        margin: 0 1rem;
+        padding-bottom: 1rem;
+        column-gap: 1rem;
         border-bottom: solid 1px $Mercury;
         @include tablet {
-            margin: 0 32px;
+            margin: 0 2rem;
             justify-content: space-between;
-            padding-bottom: 24px;
+            padding-bottom: 1.5rem;
         }
         @include desktop {
             margin: 0;
-            padding-right: 24px;
+            padding-right: 1.5rem;
         }
         &__avatar {
-            margin-top: 16px;
+            margin-top: 1rem;
             background-image: url(../../../assets/Images/Mohan-muruge.jpg);
             background-size: cover;
             background-position:left;
-            width: 36px;
-            height: 36px;
+            width: 2.25rem;
+            height: 2.25rem;
             object-fit: contain;
             border-radius: 50%;
             @include tablet {
-                margin-top: 32px;
+                margin-top: 2rem;
             }
         }
         &__block {
             display: flex;
             flex-direction: column;
             width: 85%;
-            row-gap: 8px;
+            row-gap: 0.5rem;
             @include tablet {
                 width: 90%;
             }
             > div {
                 display: flex;
                 flex-direction: column;
-                row-gap: 8px;
+                row-gap: 0.5rem;
                 @include tablet {
                     flex-direction: row;
-                    column-gap: 24px;
+                    column-gap: 1.5rem;
                     justify-content: space-between;
                 }
             }
@@ -59,15 +59,15 @@
             background-color: $Alabaster;
             border: solid 1px $Mercury;
             border-radius: 4px;
-            padding: 12px 12px 60px 12px;
+            padding: 0.75rem 0.75rem 3.75rem 0.75rem;
             font-family: "Avenir Next Regular";
             &::placeholder {
                 color: $BrainFlix-Black;
             }
             @include tablet {
                 width: 70%;
-                height: 40px;
-                padding: 10px 8px;
+                height: 2.5rem;
+                padding: 0.625rem 0.5rem;
             }
         }
         &__button {
@@ -75,10 +75,12 @@
             flex-direction: row;
             align-items: center;
             background-color: $BrainFlix-Blue;
-            height: 40px;
+            height: 2.5rem;
+            color: $white;
             p{
                 flex-grow: 1;
                 @include mobile-label;
+                font-family: "Avenir Next Demi";
                 font-size: 13px;
             }
             @include tablet {
@@ -87,34 +89,34 @@
         }
     }
     &__list {
-        padding: 0 16px 16px;
+        padding: 0 1rem 1rem;
         @include tablet {
-            padding: 0 32px 24px;
+            padding: 0 2rem 1.5rem;
         }
         @include desktop {
             padding: 0;
-            padding-bottom: 32px;
+            padding-bottom: 2rem;
         }
     }
     &__card {
         border-bottom: solid 1px $Mercury;
-        padding: 16px 0;
+        padding: 1rem 0;
         display: flex;
         flex-direction: row;
-        column-gap: 16px;
+        column-gap: 1rem;
         @include tablet{
             justify-content: space-between;
         }
         @include desktop {
-            padding-right: 24px;
+            padding-right: 1.5rem;
             &:last-child {
                 border-bottom: none;
             }
         }
         &-avatar {
             background-color: $Mercury;
-            width: 36px;
-            height: 36px;
+            width: 2.25rem;
+            height: 2.25rem;
             object-fit: contain;
             border-radius: 50%;
         }
@@ -130,12 +132,12 @@
         }
         &-name {
             width: 50%;
-            margin-bottom: 16px;
+            margin-bottom: 1rem;
             font-family: "Avenir Next Demi";
         }
         &-date {
             width: 50%;
-            margin-bottom: 16px;
+            margin-bottom: 1rem;
             text-align: right;
             color: $Silver;
         }
