@@ -95,4 +95,25 @@
             width: 25%;
         };
     }
+    @include desktop {
+        padding: 24px 80px;
+        &__logo {
+            flex: 0 1 auto;
+            margin:0;
+            margin-right: 25rem;
+        }
+        &__search {
+            flex: 0 1 auto;
+            width: 20%;
+            margin-right: 0;
+        }
+        &__avatar {
+            flex: 0 1 auto;
+            order:1;
+        }
+        &__upload {
+            flex: 0 1 auto;
+            width: 20%;
+        }
+    }
 }

@@ -9,6 +9,10 @@
     @include tablet {
         padding: 24px 32px;
     }
+    @include desktop {
+        padding: 0;
+        padding-top: 32px;
+    }
     &__title {
         @include mobile-page-header;
         border-bottom: solid 1px $Mercury;
@@ -24,6 +28,9 @@
         justify-content: space-between;
         padding:16px 0 ;
         border-bottom: solid 1px $Mercury;
+        @include desktop {
+            padding-right: 24px;
+        }
         &--first-block {
             width: 60%;
             display: flex;
@@ -66,5 +73,22 @@
     &__comments {
         @include mobile-section-header;
         font-family: 'Avenir Next Demi';
+    }
+}
+
+
+.videodetails {
+    @include desktop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 80px;
+        &__firstblock {
+            display:flex;
+            flex-direction: column;
+            border-right: solid 1px $Mercury;
+            flex-shrink: 0;
+            width: 65%;;
+        }
     }
 }

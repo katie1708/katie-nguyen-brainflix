@@ -13,6 +13,11 @@
         @include tablet {
             margin: 0 32px;
             justify-content: space-between;
+            padding-bottom: 24px;
+        }
+        @include desktop {
+            margin: 0;
+            padding-right: 24px;
         }
         &__avatar {
             margin-top: 16px;
@@ -23,7 +28,9 @@
             height: 36px;
             object-fit: contain;
             border-radius: 50%;
-
+            @include tablet {
+                margin-top: 32px;
+            }
         }
         &__block {
             display: flex;
@@ -84,6 +91,10 @@
         @include tablet {
             padding: 0 32px 24px;
         }
+        @include desktop {
+            padding: 0;
+            padding-bottom: 32px;
+        }
     }
     &__card {
         border-bottom: solid 1px $Mercury;
@@ -93,6 +104,12 @@
         column-gap: 16px;
         @include tablet{
             justify-content: space-between;
+        }
+        @include desktop {
+            padding-right: 24px;
+            &:last-child {
+                border-bottom: none;
+            }
         }
         &-avatar {
             background-color: $Mercury;
