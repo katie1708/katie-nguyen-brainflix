@@ -1,0 +1,23 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body{
+    margin:0;
+    color: $BrainFlix-Black;
+    @include mobile-body;
+    @include tablet {
+        @include tablet-body;
+    }
+}
+
+h2,h3,p {
+    margin: 0;
+}

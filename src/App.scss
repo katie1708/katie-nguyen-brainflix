@@ -1,0 +1,35 @@
+@use './styles/partials/variables' as *;
+@use './styles/partials/mixins' as *;
+@use './styles/partials/global' as *;
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background-color: $white;
+  color:$BrainFlix-Black;
+  @include mobile-body;
+  @include tablet {
+      @include tablet-body;
+  }
+}
+
+#root {
+  box-sizing: border-box;
+}
+
+h2,h3,p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+

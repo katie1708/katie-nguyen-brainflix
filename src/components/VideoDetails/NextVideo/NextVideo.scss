@@ -1,0 +1,46 @@
+@use '../../../styles/partials/variables' as *;
+@use '../../../styles/partials/mixins' as *;
+@use '../../../styles/partials/global' as *;
+
+.nextvideo {
+    padding: 0 16px 32px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    @include tablet {
+        padding: 0 32px 32px;
+    }
+    &__title {
+        color: $Silver;
+        font-family: "Avenir Next Demi";
+    }
+    &__list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+        @include tablet {
+            width: 70%;
+        }
+    }
+    &__card {
+        display: flex;
+        flex-direction: row;
+        column-gap: 16px;
+        &-img {
+            width: 35%;
+            border-radius: 4px;
+        }
+        &-info {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        &-title {
+            @include mobile-section-header;
+            font-family: "Avenir Next Demi";
+        }
+        &-channel {
+            margin-top: auto;
+        }
+    }
+}

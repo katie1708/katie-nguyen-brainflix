@@ -1,0 +1,70 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/global' as *;
+
+.activevideo {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+        padding: 24px 32px;
+    }
+    &__title {
+        @include mobile-page-header;
+        border-bottom: solid 1px $Mercury;
+        padding-bottom: 16px;
+        @include tablet {
+            border: none;
+            padding-bottom: 0;
+        }
+    }
+    &__info {
+        display: flex;
+        flex-direction:row;
+        justify-content: space-between;
+        padding:16px 0 ;
+        border-bottom: solid 1px $Mercury;
+        &--first-block {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            row-gap: 8px;
+            &--channel {
+                @include mobile-section-header;
+            }
+            @include tablet {
+                flex-direction: row;
+                column-gap: 24px;
+            }
+        }
+        &--second-block {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            row-gap: 8px;
+            padding-top: 2px;
+            &__view {
+                display:flex;
+                flex-direction: row;
+                column-gap: 5px;
+            }
+            &__like {
+                display:flex;
+                flex-direction: row;
+                column-gap: 5px;
+            }
+            @include tablet {
+                flex-direction: row;
+                column-gap: 24px;
+                justify-content: flex-end;
+            }
+        }
+    }
+    &__description {
+        padding: 16px 0;
+    }
+    &__comments {
+        @include mobile-section-header;
+        font-family: 'Avenir Next Demi';
+    }
+}

@@ -1,0 +1,129 @@
+@use '../../../styles/partials/variables' as *;
+@use '../../../styles/partials/mixins' as *;
+@use '../../../styles/partials/global' as *;
+
+.comments{
+    &__form {
+        display: flex;
+        flex-direction: row;
+        margin: 0 16px;
+        padding-bottom: 16px;
+        column-gap: 16px;
+        border-bottom: solid 1px $Mercury;
+        @include tablet {
+            margin: 0 32px;
+            justify-content: space-between;
+        }
+        &__avatar {
+            margin-top: 16px;
+            background-image: url(../../../assets/Images/Mohan-muruge.jpg);
+            background-size: cover;
+            background-position:left;
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            border-radius: 50%;
+
+        }
+        &__block {
+            display: flex;
+            flex-direction: column;
+            width: 85%;
+            row-gap: 8px;
+            @include tablet {
+                width: 90%;
+            }
+            > div {
+                display: flex;
+                flex-direction: column;
+                row-gap: 8px;
+                @include tablet {
+                    flex-direction: row;
+                    column-gap: 24px;
+                    justify-content: space-between;
+                }
+            }
+        }
+        &__title {
+            color: $Silver;
+            font-family: "Avenir Next Demi";
+        }
+        textarea {
+            background-color: $Alabaster;
+            border: solid 1px $Mercury;
+            border-radius: 4px;
+            padding: 12px 12px 60px 12px;
+            font-family: "Avenir Next Regular";
+            &::placeholder {
+                color: $BrainFlix-Black;
+            }
+            @include tablet {
+                width: 70%;
+                height: 40px;
+                padding: 10px 8px;
+            }
+        }
+        &__button {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: $BrainFlix-Blue;
+            height: 40px;
+            p{
+                flex-grow: 1;
+                @include mobile-label;
+                font-size: 13px;
+            }
+            @include tablet {
+                flex-grow: 1;
+            }
+        }
+    }
+    &__list {
+        padding: 0 16px 16px;
+        @include tablet {
+            padding: 0 32px 24px;
+        }
+    }
+    &__card {
+        border-bottom: solid 1px $Mercury;
+        padding: 16px 0;
+        display: flex;
+        flex-direction: row;
+        column-gap: 16px;
+        @include tablet{
+            justify-content: space-between;
+        }
+        &-avatar {
+            background-color: $Mercury;
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+        &-content {
+            width: 85%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            @include tablet {
+                width: 90%;
+            }
+        }
+        &-name {
+            width: 50%;
+            margin-bottom: 16px;
+            font-family: "Avenir Next Demi";
+        }
+        &-date {
+            width: 50%;
+            margin-bottom: 16px;
+            text-align: right;
+            color: $Silver;
+        }
+        &-text {
+            flex-grow: 1;
+        }
+    }
+}
