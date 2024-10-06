@@ -3,16 +3,20 @@
 @use '../../styles/partials/global' as *;
 
 .activevideo {
-    padding: 16px;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     @include tablet {
-        padding: 24px 32px;
+        padding: 1.5rem 2rem;
+    }
+    @include desktop {
+        padding: 0;
+        padding-top: 2rem;
     }
     &__title {
         @include mobile-page-header;
         border-bottom: solid 1px $Mercury;
-        padding-bottom: 16px;
+        padding-bottom: 1rem;
         @include tablet {
             border: none;
             padding-bottom: 0;
@@ -22,26 +26,29 @@
         display: flex;
         flex-direction:row;
         justify-content: space-between;
-        padding:16px 0 ;
+        padding:1rem 0 ;
         border-bottom: solid 1px $Mercury;
+        @include desktop {
+            padding-right: 1.5rem;
+        }
         &--first-block {
             width: 60%;
             display: flex;
             flex-direction: column;
-            row-gap: 8px;
+            row-gap: 0.5rem;
             &--channel {
                 @include mobile-section-header;
             }
             @include tablet {
                 flex-direction: row;
-                column-gap: 24px;
+                column-gap: 1.5rem;
             }
         }
         &--second-block {
             width: 40%;
             display: flex;
             flex-direction: column;
-            row-gap: 8px;
+            row-gap: 0.5rem;
             padding-top: 2px;
             &__view {
                 display:flex;
@@ -55,16 +62,33 @@
             }
             @include tablet {
                 flex-direction: row;
-                column-gap: 24px;
+                column-gap: 1.5rem;
                 justify-content: flex-end;
             }
         }
     }
     &__description {
-        padding: 16px 0;
+        padding: 1rem 0;
     }
     &__comments {
         @include mobile-section-header;
         font-family: 'Avenir Next Demi';
+    }
+}
+
+
+.videodetails {
+    @include desktop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 5rem;
+        &__firstblock {
+            display:flex;
+            flex-direction: column;
+            border-right: solid 1px $Mercury;
+            flex-shrink: 0;
+            width: 65%;;
+        }
     }
 }

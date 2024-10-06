@@ -2,9 +2,16 @@ import viewIcon from "../../assets/Icons/views.svg"
 import likeIcon from "../../assets/Icons/likes.svg"
 
 function ActiveVideo(props) {
-    // console.log(props.activeVideo.comments.length);
 
     const activeVideo = props.activeVideo;
+
+    const specFormat = {
+        year:"numeric", 
+        month:"2-digit", 
+        day:"2-digit"
+    };
+    
+    const dateFormatter = Intl.DateTimeFormat('en-US',specFormat);
 
     return(
         <>
@@ -13,7 +20,7 @@ function ActiveVideo(props) {
                 <div className = "activevideo__info">
                     <div className="activevideo__info--first-block">
                         <p className="activevideo__info--first-block--channel">By {activeVideo.channel}</p>
-                        <p>{activeVideo.timestamp}</p>
+                        <p>{dateFormatter.format(activeVideo.timestamp)}</p>
                     </div>
                     <div className="activevideo__info--second-block">
                         <div className="activevideo__info--second-block__view">

@@ -4,7 +4,6 @@ import "./CommentSection.scss";
 
 function CommentSection(props) {
     const commentList = props.activeVideo.comments;
-    // console.log(commentList);
 
     return(
         <>

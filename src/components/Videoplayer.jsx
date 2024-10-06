@@ -7,13 +7,12 @@ import "./Videoplayer.scss"
 
 function Videoplayer() {
     return (
-        <section>
-            <video 
+        <section className="videowrapper">
+            <video
                 className="videoplayer"
                 controls
                 poster={videopreview}>
             </video>
-            
         </section>
     )
 }

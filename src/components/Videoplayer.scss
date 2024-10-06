@@ -2,8 +2,20 @@
 @use '../styles/partials/mixins' as *;
 @use '../styles/partials/global' as *;
 
+.videowrapper {
+    background-color: $BrainFlix-DarkBlack; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .videoplayer {
     margin: 0;
     width: 100%;
-    background-color: $BrainFlix-DarkBlack;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    @include tablet {
+        width: 70%;
+    }
 }
