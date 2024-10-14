@@ -1,12 +1,12 @@
 function NextVideo(props) {
     
-    const ActiveVideoHandler = () => {
-        console.log("working");
-        props.changeActiveVideo(props.id);
-    }
+    // const ActiveVideoHandler = () => {
+    //     console.log("working");
+    //     props.changeActiveVideo(props.id);
+    // }
 
     return(
-        <article className="nextvideo__card" onClick={ActiveVideoHandler}>
+        <article className="nextvideo__card">
             <img className="nextvideo__card-img" src={props.image}/>
             <div className="nextvideo__card-info">   
                 <p className="nextvideo__card-title">{props.title}</p>

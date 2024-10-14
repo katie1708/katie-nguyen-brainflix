@@ -1,6 +1,7 @@
 import NextVideo from "./NextVideo";
 import VideoData from "../../../data/video-details.json";
 import "./NextVideo.scss";
+import {Link} from 'react-router-dom'
 
 function NextVideoList(props) {
     
@@ -11,7 +12,9 @@ function NextVideoList(props) {
             <p className="nextvideo__title">NEXT VIDEOS</p>
             <div className="nextvideo__list">
             {nextVideoList.map((video) => (
-                <NextVideo key={video.id} id={video.id} image={video.image} title={video.title} channel={video.channel} changeActiveVideo = {props.changeActiveVideo}/>
+                <Link to={`/videos/${video.id}`}>
+                    <NextVideo key={video.id} id={video.id} image={video.image} title={video.title} channel={video.channel} changeActiveVideo = {props.changeActiveVideo}/>
+                </Link>
             ))}
             </div>
         </section>

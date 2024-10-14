@@ -4,6 +4,7 @@ import likeIcon from "../../assets/Icons/likes.svg"
 function ActiveVideo(props) {
 
     const activeVideo = props.activeVideo;
+    // console.log(activeVideo);
 
     const specFormat = {
         year:"numeric", 
