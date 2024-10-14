@@ -17,10 +17,10 @@ function MainVideoPage() {
     //     setActiveVideo(VideoData[0]);
     // }
 
-    useEffect(() => {   
-        const clickedVideo = VideoData.find((video) => video.id === videoId);
-        setActiveVideo(clickedVideo);
-    }, [videoId]);
+    // useEffect(() => {   
+    //     const clickedVideo = VideoData.find((video) => video.id === videoId);
+    //     setActiveVideo(clickedVideo);
+    // }, [videoId]);
 
     return (
         <>

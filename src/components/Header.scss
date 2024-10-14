@@ -55,12 +55,11 @@
     }
     &__upload {
         background-color: $BrainFlix-Blue;
-        height: 2.5rem;
+        width: 100%;
+        height: 100%;
         border-radius: 4px;
         color: $white;
         font-family: "Avenir Next Demi";
-        flex-basis: 100%;
-        flex-grow: 2;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -69,6 +68,13 @@
             @include mobile-label;
             font-size: 13px;
             font-family: "Avenir Next Demi";
+        }
+        &--link {
+            text-decoration: none;
+            display: inline-block;
+            height: 2.5rem;
+            flex-basis: 100%;
+            flex-grow: 2;
         }
     }
     @include tablet {
@@ -91,7 +97,7 @@
         &__avatar {
             order:1;
         }
-        &__upload {
+        &__upload--link {
             flex: 0 1 auto;
             width: 25%;
         };
@@ -108,7 +114,7 @@
             width: 20%;
             margin-right: 0;
         }
-        &__upload {
+        &__upload--link {
             flex: 0 1 auto;
             width: 20%;
         }

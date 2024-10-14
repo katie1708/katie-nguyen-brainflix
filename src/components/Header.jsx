@@ -15,10 +15,12 @@ function Header() {
                 </input>
             </div>
             <p className="header__avatar" src={avatar}></p>
-            <button className="header__upload" type="submit">
-                <img src={upload}/>
-                <p>UPLOAD</p>
-            </button>
+            <Link className="header__upload--link" to="/upload">
+                <button className="header__upload" type="submit">
+                    <img src={upload}/>
+                    <p>UPLOAD</p>
+                </button>
+            </Link>
         </header>
             
     )
