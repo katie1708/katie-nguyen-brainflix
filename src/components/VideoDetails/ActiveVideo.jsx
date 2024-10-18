@@ -6,6 +6,7 @@ function ActiveVideo(props) {
     const activeVideo = props.activeVideo;
     // console.log(activeVideo);
 
+    //Date formatter
     const specFormat = {
         year:"numeric", 
         month:"2-digit", 

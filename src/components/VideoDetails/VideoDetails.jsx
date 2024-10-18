@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import VideoData from "../../data/video-details.json";
 import ActiveVideo from  "../VideoDetails/ActiveVideo.jsx";
 import CommentSection from "./CommentsSection/CommentSection.jsx";
 import NextVideoList from "./NextVideo/NextVideoList.jsx";
@@ -7,8 +6,8 @@ import "./VideoDetails.scss"
 import { Navigate, useParams } from "react-router-dom";
 
 
-function VideoDetails(props) {
 
+function VideoDetails(props) {
     // const [activeVideo, setActiveVideo] = useState(VideoData[0]);
     // // console.log(activeVideo);
 
@@ -22,7 +21,7 @@ function VideoDetails(props) {
     // useEffect(() => {   
     //     const clickedVideo = VideoData.find((video) => video.id === videoId);
     //     setActiveVideo(clickedVideo);
-    // }, [videoId]);
+    // }, [videoId])
 
     return(
         <>
@@ -32,7 +31,7 @@ function VideoDetails(props) {
                     <CommentSection activeVideo={props.activeVideo}/>
                 </div>
                 <div className="videodetails__secondblock">
-                    <NextVideoList activeVideo={props.activeVideo} videoData={VideoData}/>
+                    <NextVideoList activeVideo={props.activeVideo}/>
                 </div>
             </div>
             
