@@ -4,23 +4,48 @@ import VideoDetails from '../components/VideoDetails/VideoDetails.jsx'
 import {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import VideoData from "../data/video-details.json";
+import axios from "axios"
 
 
 function MainVideoPage() {
-    const [activeVideo, setActiveVideo] = useState(VideoData[0]);
-    // console.log(activeVideo);
+  const [activeVideo, setActiveVideo] = useState([]);
+  
+  //API info
+  const myApiKey = "bb5eaaaf-7037-4a5b-b14b-f3d6f539a223";
+  const baseURL = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
 
-    //fetch and set video data
-    const { videoId } = useParams(); 
+  //Fetch the video data
+  useEffect(() => {
+    (async () => {
+      const data = await axios.get(`${baseURL}videos/${VideoData[0].id}?api_key=${myApiKey}`);
+      console.log("test");
+      setActiveVideo(data.data);
+    })();
+  }, []);
 
-    // if(!videoId) {
-    //     setActiveVideo(VideoData[0]);
-    // }
+  //Fetch and set video data with videoId
+  const { videoId } = useParams(); 
 
-    // useEffect(() => {   
-    //     const clickedVideo = VideoData.find((video) => video.id === videoId);
-    //     setActiveVideo(clickedVideo);
-    // }, [videoId]);
+    useEffect(() => {   
+        if (!videoId) {
+          const getVideoList = async() => {
+            const response = await axios.get(`${baseURL}videos/?api_key=${myApiKey}`);
+            const videoList = response.data;
+            const getFirstVideo = await axios.get(`${baseURL}videos/${videoList[0].id}?api_key=${myApiKey}`);
+            const firstVideo = getFirstVideo.data;
+            setActiveVideo(firstVideo);
+          }
+          getVideoList();
+        } else {
+          const fetchVideo = async () => {
+            const response = await axios.get(`${baseURL}videos/${videoId}?api_key=${myApiKey}`);
+            const foundVideo = response.data;
+            setActiveVideo(foundVideo);
+          }
+          fetchVideo();
+        }
+
+    }, [videoId]);
 
     return (
         <>
