@@ -20,7 +20,7 @@ function VideoUploadForm() {
                     <p>VIDEO THUMBNAIL</p>
                     <img src={videopreview}></img>
                 </div>
-                <form className="videoupload__form" onSubmit={submitHandler}>
+                <form id="upload-form" className="videoupload__form" onSubmit={submitHandler}>
                     <fieldset>
                         <label className="videoupload__form--label">
                             TITLE YOUR VIDEO
@@ -31,26 +31,17 @@ function VideoUploadForm() {
                         </label>
                         <input className="videoupload__form--input" type="text" placeholder="Add a description to your video"></input>
                     </fieldset>
-                    <div className="videoupload__button">
-                <button className="videoupload__button-publish" type="submit" >
-                    <img src={publishicon}/>
-                    <p>PUBLISH</p>
-                </button>
-                <button className="videoupload__button-cancel"  >
-                    <p>CANCEL</p>
-                </button>      
-            </div>
                 </form> 
             </div>
-            {/* <div className="videoupload__button">
-                <button className="videoupload__button-publish" type="submit" >
+            <div className="videoupload__button">
+                <button className="videoupload__button-publish" type="submit" form="upload-form">
                     <img src={publishicon}/>
                     <p>PUBLISH</p>
                 </button>
-                <button className="videoupload__button-cancel"  >
+                <button className="videoupload__button-cancel">
                     <p>CANCEL</p>
                 </button>      
-            </div> */}
+            </div>
         </section>
     )
 }
