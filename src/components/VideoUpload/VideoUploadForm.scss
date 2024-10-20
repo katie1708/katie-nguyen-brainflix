@@ -1,0 +1,175 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/global' as *;
+
+.videoupload {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    @include desktop {
+        &__body {
+            display: flex;
+            flex-direction: row;
+            border-top: solid 1px $Mercury;
+            border-bottom: solid 1px $Mercury;
+            margin: 0 5rem;
+            column-gap: 1.5rem;
+            padding-bottom: 2rem;
+            @include desktop {
+                padding-bottom: 0.5rem;
+            }
+        }
+    }
+    &__title {
+        border-top: solid 1px $Mercury;
+        padding: 2rem 1rem;
+        @include mobile-page-header;
+        @include tablet {
+            padding: 2rem 2rem;
+            @include tablet-page-header;
+        }
+        @include desktop {
+            padding: 2rem 5rem;
+        }
+    }
+    &__thumbnail {
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+        p {
+            @include mobile-section-header;
+            font-family: 'Avenir Next Demi';
+            color: $Silver;
+            @include tablet {
+                font-size: 14px;
+            }
+        }
+        @include tablet {
+            border-top: solid 1px $Mercury;
+            margin:0 2rem;
+            padding: 2rem 0 0;
+            img {
+                width: 50%;
+            }
+        }
+        @include desktop {
+            margin:0;
+            border: none;
+            width: 35%;
+            img {
+                width: 100%;
+            }
+        }
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem 1rem 0;
+        @include tablet {
+            margin:0 2rem;
+            padding: 2rem 0 0;
+            input:last-child {
+                padding-bottom: 4rem;
+            }
+        }
+        @include desktop {
+            margin: 0;
+            flex-grow: 1;
+            input:last-child {
+                margin-bottom: 0;
+            }
+        }
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            @include tablet {
+                border-bottom: solid 1px $Mercury;
+                margin-bottom: 1.5rem;
+            }
+            @include desktop {
+                border: none;
+            }
+        }
+        &--label {
+            color: $Silver;
+            font-family: "Avenir Next Demi";
+            margin-bottom: 0.5rem;
+        }
+        &--input {
+            background-color: $Alabaster;
+            border: solid 1px $Mercury;
+            border-radius: 4px;
+            padding: 0.75rem;
+            margin-bottom: 1.5rem;
+            font-family: "Avenir Next Regular";
+            &::placeholder {
+                color: $BrainFlix-Black;
+            }
+        }
+    }
+    &__button {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        padding: 0 1rem 1rem;
+        @include tablet {
+            flex-direction: row;
+            justify-content: flex-end;
+            column-gap: 2rem;
+            padding: 0 2rem 2rem;
+        }
+        @include desktop {
+            padding: 2rem 5rem;
+        }
+        &-publish {
+            background-color: $BrainFlix-Blue;
+            padding: 0.5rem;
+            height: 2.5rem;
+            border-radius: 4px;
+            color: $white;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            p {
+                width: 80%;
+                @include mobile-label;
+                font-size: 13px;
+                font-family: "Avenir Next Demi";
+            }
+            @include tablet {
+                order: 1;
+                width: 25%;
+            }
+            @include desktop {
+                width: 15%;
+            }
+        }
+        &-cancel {
+            background-color: $white;
+            color: $BrainFlix-Blue;
+            padding: 0.5rem;
+            height: 2.5rem;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            p {
+                padding-left: 3rem;
+                width: 80%;
+                @include mobile-label;
+                font-size: 13px;
+                font-family: "Avenir Next Demi";
+            }
+            @include tablet {
+                width: 25%;
+            }
+            @include desktop {
+                width: 15%;
+            }
+        }
+    }
+}

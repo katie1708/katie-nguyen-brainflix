@@ -5,12 +5,15 @@ import "./CommentSection.scss";
 function CommentSection(props) {
     const commentList = props.activeVideo.comments;
 
-    return(
-        <>
-            <CommentForm />
-            <CommentList commentList = {commentList}/>
-        </>
-    )
+    if(commentList){
+        return(
+            <>
+                <CommentForm />
+                <CommentList commentList = {commentList}/>
+            </>
+        )
+    }
+    
 }
 
 export default CommentSection;

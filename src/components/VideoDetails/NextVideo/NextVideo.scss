@@ -25,6 +25,10 @@
             width: 70%;
         }
     }
+    &--link {
+        text-decoration: none;
+        color: $BrainFlix-Black;
+    }
     &__card {
         display: flex;
         flex-direction: row;
