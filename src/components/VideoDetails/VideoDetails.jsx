@@ -8,20 +8,6 @@ import { Navigate, useParams } from "react-router-dom";
 
 
 function VideoDetails(props) {
-    // const [activeVideo, setActiveVideo] = useState(VideoData[0]);
-    // // console.log(activeVideo);
-
-    // //fetch and set video data
-    // const { videoId } = useParams(); 
-
-    // // if(!videoId) {
-    // //     setActiveVideo(VideoData[0]);
-    // // }
-
-    // useEffect(() => {   
-    //     const clickedVideo = VideoData.find((video) => video.id === videoId);
-    //     setActiveVideo(clickedVideo);
-    // }, [videoId])
 
     return(
         <>

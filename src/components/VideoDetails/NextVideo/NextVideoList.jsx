@@ -17,18 +17,16 @@ function NextVideoList(props) {
             const videoList = response.data;
             const nextVideos = videoList.filter((video) => video.id !== id);
             setNextVideoList(nextVideos);
-            // console.log(nextVideos);
         }
         fetchVideoList(props.activeVideo.id);
     },[props.activeVideo])
-    // console.log(nextVideos);
 
     return (
         <section className="nextvideo">
             <p className="nextvideo__title">NEXT VIDEOS</p>
             <div className="nextvideo__list">
             {nextVideoList.map((video) => (
-                <Link to={`/videos/${video.id}`}>
+                <Link className="nextvideo--link" to={`/videos/${video.id}`} key={video.id}>
                     <NextVideo key={video.id} id={video.id} image={video.image} title={video.title} channel={video.channel} changeActiveVideo = {props.changeActiveVideo}/>
                 </Link>
             ))}

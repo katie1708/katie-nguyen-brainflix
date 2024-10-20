@@ -8,36 +8,23 @@ import axios from "axios"
 
 
 function MainVideoPage() {
+  const [activeVideo, setActiveVideo] = useState([]);
   
-  const [activeVideo, setActiveVideo] = useState(VideoData[0]);
-  console.log(activeVideo);
-    //Fetch the video data
-    const myApiKey = "bb5eaaaf-7037-4a5b-b14b-f3d6f539a223";
-    const baseURL = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
+  //API info
+  const myApiKey = "bb5eaaaf-7037-4a5b-b14b-f3d6f539a223";
+  const baseURL = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
 
-    // function getDefaultVideo = async () => {
-    //   const response = await axios.get(`${baseURL}videos/?api_key=${myApiKey}`);
-    //   const videoList = response.data;
-    //   const getDefaultVideo = await axios.get(`${baseURL}videos/${videoList[0].id}?api_key=${myApiKey}`);
-    //   const defaultVideo = getDefaultVideo.data;
-    //   // console.log(firstVideo.comments);
-    //   console.log(defaultVideo);
-    //   setActiveVideo(defaultVideo);
-    // }
+  //Fetch the video data
+  useEffect(() => {
+    (async () => {
+      const data = await axios.get(`${baseURL}videos/${VideoData[0].id}?api_key=${myApiKey}`);
+      console.log("test");
+      setActiveVideo(data.data);
+    })();
+  }, []);
 
-    // useEffect(() => {
-    //   const fetchDefaultVideo = async() => {
-    //     const response = await axios.get(`${baseURL}videos/?api_key=${myApiKey}`);
-    //     const videoList = response.data;
-    //     const getDefaultVideo = await axios.get(`${baseURL}videos/${videoList[0].id}?api_key=${myApiKey}`);
-    //     const defaultVideo = getDefaultVideo.data;
-    //     setActiveVideo(defaultVideo);
-    //   };
-    //   fetchDefaultVideo();
-    // }, []);
-
-    //fetch and set video data
-    const { videoId } = useParams(); 
+  //Fetch and set video data with videoId
+  const { videoId } = useParams(); 
 
     useEffect(() => {   
         if (!videoId) {
@@ -47,7 +34,6 @@ function MainVideoPage() {
             const getFirstVideo = await axios.get(`${baseURL}videos/${videoList[0].id}?api_key=${myApiKey}`);
             const firstVideo = getFirstVideo.data;
             setActiveVideo(firstVideo);
-            // console.log("run1")
           }
           getVideoList();
         } else {
@@ -55,7 +41,6 @@ function MainVideoPage() {
             const response = await axios.get(`${baseURL}videos/${videoId}?api_key=${myApiKey}`);
             const foundVideo = response.data;
             setActiveVideo(foundVideo);
-            // console.log("run2")
           }
           fetchVideo();
         }
