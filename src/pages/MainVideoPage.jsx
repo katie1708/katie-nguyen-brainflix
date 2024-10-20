@@ -3,7 +3,6 @@ import Videoplayer from '../components/Videoplayer.jsx'
 import VideoDetails from '../components/VideoDetails/VideoDetails.jsx'
 import {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
-import VideoData from "../data/video-details.json";
 import axios from "axios"
 
 
@@ -17,9 +16,11 @@ function MainVideoPage() {
   //Fetch the video data
   useEffect(() => {
     (async () => {
-      const data = await axios.get(`${baseURL}videos/${VideoData[0].id}?api_key=${myApiKey}`);
-      console.log("test");
-      setActiveVideo(data.data);
+      const response = await axios.get(`${baseURL}videos/?api_key=${myApiKey}`);
+      const videoList = response.data;
+      const getDefaultVideo = await axios.get(`${baseURL}videos/${videoList[0].id}?api_key=${myApiKey}`);
+      const defaultVideo = getDefaultVideo.data;
+      setActiveVideo(defaultVideo);
     })();
   }, []);
 
