@@ -1,10 +1,8 @@
-import viewIcon from "../../assets/Icons/views.svg"
-import likeIcon from "../../assets/Icons/likes.svg"
-import { useEffect, useState } from "react";
+import likeIcon from "../../assets/Icons/likes.svg";
+import viewIcon from "../../assets/Icons/views.svg";
 
 function ActiveVideo(props) {
     const activeVideo = props.activeVideo;
-    const comments = props.activeVideo.comments;
 
     //Date formatter
     const specFormat = {
@@ -15,35 +13,30 @@ function ActiveVideo(props) {
     
     const dateFormatter = Intl.DateTimeFormat('en-US',specFormat);
 
-    if(comments) {
-        return(
-            <>
-                <section className = "activevideo">
-                    <h2 className = "activevideo__title">{activeVideo.title}</h2>
-                    <div className = "activevideo__info">
-                        <div className="activevideo__info--first-block">
-                            <p className="activevideo__info--first-block--channel">By {activeVideo.channel}</p>
-                            <p>{dateFormatter.format(activeVideo.timestamp)}</p>
+    return(
+        <>
+            <section className = "activevideo">
+                <h2 className = "activevideo__title">{activeVideo.title}</h2>
+                <div className = "activevideo__info">
+                    <div className="activevideo__info--first-block">
+                        <p className="activevideo__info--first-block--channel">By {activeVideo.channel}</p>
+                        <p>{dateFormatter.format(activeVideo.timestamp)}</p>
+                    </div>
+                    <div className="activevideo__info--second-block">
+                        <div className="activevideo__info--second-block__view">
+                            <img src={viewIcon} alt="viewicon"/>
+                            <p>{activeVideo.views}</p>
                         </div>
-                        <div className="activevideo__info--second-block">
-                            <div className="activevideo__info--second-block__view">
-                                <img src={viewIcon} alt="viewicon"/>
-                                <p>{activeVideo.views}</p>
-                            </div>
-                            <div className="activevideo__info--second-block__like">
-                                <img src={likeIcon} alt="likeicon"/>
-                                <p>{activeVideo.likes}</p>
-                            </div>
+                        <div className="activevideo__info--second-block__like">
+                            <img src={likeIcon} alt="likeicon"/>
+                            <p>{activeVideo.likes}</p>
                         </div>
                     </div>
-                    <p className = "activevideo__description">{activeVideo.description}</p>
-                    <p className = "activevideo__comments">{activeVideo.comments.length} Comments</p>
-                </section>
-                
-            </>
-        )
-    }
-    
+                </div>
+                <p className = "activevideo__description">{activeVideo.description}</p>
+            </section>
+        </>
+    )
 }
 
 export default ActiveVideo

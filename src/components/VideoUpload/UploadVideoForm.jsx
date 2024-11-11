@@ -1,7 +1,7 @@
-import videopreview from "../../assets/Images/Upload-video-preview.jpg"
-import publishicon from "../../assets/Icons/publish.svg"
-import "./VideoUploadForm.scss"
 import { useNavigate } from "react-router-dom";
+import publishicon from "../../assets/Icons/publish.svg";
+import videopreview from "../../assets/Images/Upload-video-preview.jpg";
+import "./VideoUploadForm.scss";
 
 function VideoUploadForm() {
     const navigate = useNavigate();

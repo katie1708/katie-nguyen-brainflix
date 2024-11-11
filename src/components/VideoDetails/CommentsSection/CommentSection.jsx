@@ -8,6 +8,7 @@ function CommentSection(props) {
     if(commentList){
         return(
             <>
+                <p className = "activevideo__comments">{commentList.length} Comments</p>
                 <CommentForm />
                 <CommentList commentList = {commentList}/>
             </>

@@ -1,9 +1,4 @@
 function NextVideo(props) {
-    
-    // const ActiveVideoHandler = () => {
-    //     console.log("working");
-    //     props.changeActiveVideo(props.id);
-    // }
 
     return(
         <article className="nextvideo__card">
