@@ -1,28 +1,18 @@
-import Header from '../components/Header.jsx'
-import Videoplayer from '../components/Videoplayer.jsx'
-import VideoDetails from '../components/VideoDetails/VideoDetails.jsx'
-import {useEffect, useState} from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios"
+import VideoDetails from '../components/VideoDetails/VideoDetails.jsx';
+import Videoplayer from '../components/Videoplayer.jsx';
 
 
 function MainVideoPage() {
+  const [videoList, setVideoList] = useState([]);
   const [activeVideo, setActiveVideo] = useState([]);
   
   //API info
-  const myApiKey = "bb5eaaaf-7037-4a5b-b14b-f3d6f539a223";
-  const baseURL = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
 
-  //Fetch the video data
-  useEffect(() => {
-    (async () => {
-      const response = await axios.get(`${baseURL}videos/?api_key=${myApiKey}`);
-      const videoList = response.data;
-      const getDefaultVideo = await axios.get(`${baseURL}videos/${videoList[0].id}?api_key=${myApiKey}`);
-      const defaultVideo = getDefaultVideo.data;
-      setActiveVideo(defaultVideo);
-    })();
-  }, []);
+  // const myApiKey = import.meta.env.VITE_API_KEY;
+  const baseURL = import.meta.env.VITE_BASE_URL;
 
   //Fetch and set video data with videoId
   const { videoId } = useParams(); 
@@ -30,29 +20,30 @@ function MainVideoPage() {
     useEffect(() => {   
         if (!videoId) {
           const getVideoList = async() => {
-            const response = await axios.get(`${baseURL}videos/?api_key=${myApiKey}`);
+            const response = await axios.get(`${baseURL}/videos`);
             const videoList = response.data;
-            const getFirstVideo = await axios.get(`${baseURL}videos/${videoList[0].id}?api_key=${myApiKey}`);
+            const getFirstVideo = await axios.get(`${baseURL}/videos/${videoList[0].id}`);
             const firstVideo = getFirstVideo.data;
             setActiveVideo(firstVideo);
+            setVideoList(videoList);
           }
           getVideoList();
         } else {
           const fetchVideo = async () => {
-            const response = await axios.get(`${baseURL}videos/${videoId}?api_key=${myApiKey}`);
+            const response = await axios.get(`${baseURL}/videos/${videoId}`);
             const foundVideo = response.data;
             setActiveVideo(foundVideo);
+            setVideoList(videoList);
           }
           fetchVideo();
         }
-
+        
     }, [videoId]);
 
     return (
         <>
-          <Header />
           <Videoplayer />
-          <VideoDetails activeVideo={activeVideo}/>
+          <VideoDetails activeVideo={activeVideo} videoList={videoList}/>
         </>
       )
 }

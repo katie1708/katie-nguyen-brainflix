@@ -1,14 +1,11 @@
-import {useEffect, useState} from "react";
-import ActiveVideo from  "../VideoDetails/ActiveVideo.jsx";
+import ActiveVideo from "../VideoDetails/ActiveVideo.jsx";
 import CommentSection from "./CommentsSection/CommentSection.jsx";
 import NextVideoList from "./NextVideo/NextVideoList.jsx";
-import "./VideoDetails.scss"
-import { Navigate, useParams } from "react-router-dom";
+import "./VideoDetails.scss";
 
 
 
 function VideoDetails(props) {
-
     return(
         <>
             <div className="videodetails">
@@ -17,7 +14,7 @@ function VideoDetails(props) {
                     <CommentSection activeVideo={props.activeVideo}/>
                 </div>
                 <div className="videodetails__secondblock">
-                    <NextVideoList activeVideo={props.activeVideo}/>
+                    <NextVideoList activeVideo={props.activeVideo} videoList={props.videoList}/>
                 </div>
             </div>
             

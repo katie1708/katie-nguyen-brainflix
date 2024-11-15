@@ -1,25 +1,11 @@
+import { Link } from 'react-router-dom';
 import NextVideo from "./NextVideo";
 import "./NextVideo.scss";
-import {Link} from 'react-router-dom';
-import axios from "axios"
-import { useEffect, useState } from "react";
 
 function NextVideoList(props) {
-    
-    const [nextVideoList,setNextVideoList] = useState([]);
 
-    const myApiKey = "bb5eaaaf-7037-4a5b-b14b-f3d6f539a223";
-    const baseURL = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
-
-    useEffect(() => {
-        async function fetchVideoList(id) {
-            const response = await axios.get(`${baseURL}videos/?api_key=${myApiKey}`);
-            const videoList = response.data;
-            const nextVideos = videoList.filter((video) => video.id !== id);
-            setNextVideoList(nextVideos);
-        }
-        fetchVideoList(props.activeVideo.id);
-    },[props.activeVideo])
+    const videoList = props.videoList;
+    const nextVideoList = videoList.filter((video) => video.id !== props.activeVideo.id);
 
     return (
         <section className="nextvideo">
