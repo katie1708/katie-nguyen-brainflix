@@ -11,7 +11,7 @@ function MainVideoPage() {
   
   //API info
 
-  const myApiKey = import.meta.env.VITE_API_KEY;
+  // const myApiKey = import.meta.env.VITE_API_KEY;
   const baseURL = import.meta.env.VITE_BASE_URL;
 
   //Fetch and set video data with videoId
@@ -20,9 +20,9 @@ function MainVideoPage() {
     useEffect(() => {   
         if (!videoId) {
           const getVideoList = async() => {
-            const response = await axios.get(`${baseURL}videos/?api_key=${myApiKey}`);
+            const response = await axios.get(`${baseURL}/videos`);
             const videoList = response.data;
-            const getFirstVideo = await axios.get(`${baseURL}videos/${videoList[0].id}?api_key=${myApiKey}`);
+            const getFirstVideo = await axios.get(`${baseURL}/videos/${videoList[0].id}`);
             const firstVideo = getFirstVideo.data;
             setActiveVideo(firstVideo);
             setVideoList(videoList);
@@ -30,7 +30,7 @@ function MainVideoPage() {
           getVideoList();
         } else {
           const fetchVideo = async () => {
-            const response = await axios.get(`${baseURL}videos/${videoId}?api_key=${myApiKey}`);
+            const response = await axios.get(`${baseURL}/videos/${videoId}`);
             const foundVideo = response.data;
             setActiveVideo(foundVideo);
             setVideoList(videoList);
