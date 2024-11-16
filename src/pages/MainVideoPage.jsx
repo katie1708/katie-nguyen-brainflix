@@ -19,7 +19,7 @@ function MainVideoPage() {
 
     useEffect(() => {   
         if (!videoId) {
-          const getVideoList = async() => {
+          const fetchFirstVideo = async() => {
             const response = await axios.get(`${baseURL}/videos`);
             const videoList = response.data;
             const getFirstVideo = await axios.get(`${baseURL}/videos/${videoList[0].id}`);
@@ -27,11 +27,13 @@ function MainVideoPage() {
             setActiveVideo(firstVideo);
             setVideoList(videoList);
           }
-          getVideoList();
+          fetchFirstVideo();
         } else {
           const fetchVideo = async () => {
-            const response = await axios.get(`${baseURL}/videos/${videoId}`);
-            const foundVideo = response.data;
+            const response = await axios.get(`${baseURL}/videos`);
+            const videoList = response.data;
+            const getVideo = await axios.get(`${baseURL}/videos/${videoId}`);
+            const foundVideo = getVideo.data;
             setActiveVideo(foundVideo);
             setVideoList(videoList);
           }
